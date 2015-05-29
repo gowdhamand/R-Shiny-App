@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\ncounties <- readRDS(file = \"Data/counties.rds\")\nsource(file = \"Helper/helpers.R\")\n\n\nshinyServer(function(input, output) {\n  output$map <- renderPlot({\n    data <- switch(\n      input$var,\n      \"Percent White\" = counties$white,\n      \"Percent Black\" = counties$black,\n      \"Percent Hispanic\" = counties$hispanic,\n      \"Percent Asian\" = counties$asian\n    )\n    \n    color <- switch(\n      input$var,\n      \"Percent White\" = \"darkgreen\",\n      \"Percent Black\" = \"black\",\n      \"Percent Hispanic\" = \"darkorange\",\n      \"Percent Asian\" = \"darkviolet\"\n    )\n    \n    legend <- switch(\n      input$var,\n      \"Percent White\" = \"% White\",\n      \"Percent Black\" = \"% Black\",\n      \"Percent Hispanic\" = \"% Hispanic\",\n      \"Percent Asian\" = \"% Asian\"\n    ) \n    \n    percent_map(var = data,color = color, legend.title = legend, min = input$range[1],max = input$range[2])\n    \n  })\n  \n})\n",
+    "created" : 1432794479428.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3496796022",
+    "id" : "7F443066",
+    "lastKnownWriteTime" : 1432828378,
+    "path" : "C:/2Piworking/Kaggle/RProjectGowLearn/ShinyTesting/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

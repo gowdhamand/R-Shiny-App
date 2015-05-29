@@ -1,0 +1,18 @@
+{
+    "contents" : "\ninstall.packages(\"maps\")\ninstall.packages(\"mapproj\")\n\ninstall.packages(c(\"maps\", \"mapproj\"))\n\nlibrary(maps)\n\n\ncounties <- readRDS(file = \"Data/counties.rds\")\nhead(counties)\n\nsource(file = \"Helper/helpers.R\")\npercent_map(counties$white,\"darkgreen\",\"% white\")\n",
+    "created" : 1432816600357.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3645485075",
+    "id" : "A98CE44F",
+    "lastKnownWriteTime" : 1432825826,
+    "path" : "C:/2Piworking/Kaggle/RProjectGowLearn/ShinyTesting/plottingTry.R",
+    "project_path" : "plottingTry.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
